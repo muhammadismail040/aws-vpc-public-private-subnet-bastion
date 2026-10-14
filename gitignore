@@ -1,0 +1,30 @@
+# ---- Secrets: NEVER commit these ----
+*.pem
+*.ppk
+*.key
+id_rsa*
+id_ed25519*
+.env
+.env.*
+credentials
+*.tfvars
+*.tfstate
+*.tfstate.*
+.aws/
+
+# ---- Terraform (for future IaC versions of this project) ----
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# ---- OS / editor files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- Temporary Office files ----
+~$*
