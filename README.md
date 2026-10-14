@@ -68,37 +68,37 @@ The VPC (`192.16.1.0/24`) contains two subnets. The **public subnet** is associa
 ### 1. Create the VPC
 Created `ismail-lab07` with IPv4 CIDR `192.16.1.0/24` in **us-east-1 (N. Virginia)**.
 
-![VPC](screenshots/01-vpc.png)
+![VPC](screenshots/01-vpc.jpeg)
 
 ### 2. Create the subnets
 Created `pub-subnet-vpc07` and `pvt-subnet-vpc07` inside the VPC (non-overlapping ranges within the VPC CIDR).
 
-![Subnets](screenshots/02-subnets.png)
+![Subnets](screenshots/02-subnets.jpeg)
 
 ### 3. Create and attach the Internet Gateway
 Created `igw-lab07` and attached it to the VPC (state: **Attached**).
 
-![Internet Gateway](screenshots/03-internet-gateway.png)
+![Internet Gateway](screenshots/03-internet-gateway.jpeg)
 
 ### 4. Configure route tables
 Created `public-rt` and `private-rt` and explicitly associated each with its subnet. In a standard public-subnet setup, `public-rt` carries a default route (`0.0.0.0/0`) to the Internet Gateway, while `private-rt` has no route to it.
 
-![Route tables](screenshots/04-route-tables.png)
+![Route tables](screenshots/04-route-tables.jpeg)
 
 ### 5. Launch the EC2 instances
 Launched `ec2-pub-07` (public subnet) and `ec2-pvt-07` (private subnet), both `t3.micro` in `us-east-1a`.
 
-![EC2 launching](screenshots/05-ec2-instances-launching.png)
+![EC2 launching](screenshots/05-ec2-instances-launching.jpeg)
 
 After initialisation, the public instance passed all 3/3 status checks with private IP `192.16.1.48`.
 
-![EC2 public instance details](screenshots/06-ec2-public-instance-details.png)
+![EC2 public instance details](screenshots/06-ec2-public-instance-details.jpeg)
 
 ## Connecting to the Private Instance
 
 **Step 1: SSH into the public instance** (PuTTY, user `ec2-user`, key-based authentication):
 
-![SSH public instance](screenshots/07-ssh-public-instance.png)
+![SSH public instance](screenshots/07-ssh-public-instance.jpeg)
 
 **Step 2: From the public instance, hop to the private instance:**
 
@@ -110,7 +110,7 @@ ssh -i key.pem ec2-user@192.16.1.199
 
 **Step 3: Verify.** The prompt changes from `ip-192-16-1-48` to `ip-192-16-1-199`, confirming access to the private instance:
 
-![SSH private instance success](screenshots/09-ssh-private-instance-success.png)
+![SSH private instance success](screenshots/09-ssh-private-instance-success.jpeg)
 
 ## Troubleshooting Log
 
@@ -123,7 +123,7 @@ The connection failed at first. Working through the errors was the most instruct
 | 3 | `WARNING: UNPROTECTED PRIVATE KEY FILE! Permissions 0644 ... are too open` | SSH refuses private keys readable by other users | `chmod 400 key1.pem` |
 | 4 | Login succeeded | n/a | Connectivity verified |
 
-![SSH troubleshooting](screenshots/08-ssh-troubleshooting.png)
+![SSH troubleshooting](screenshots/08-ssh-troubleshooting.jpeg)
 
 ## Key Learnings
 
@@ -159,7 +159,7 @@ aws-vpc-public-private-subnet-bastion/
 ├── architecture/
 │   └── diagram.png
 ├── screenshots/
-│   └── 01-vpc.png ... 09-ssh-private-instance-success.png
+│   └── 01-vpc.jpeg ... 09-ssh-private-instance-success.jpeg
 └── docs/
     └── Cloud_Computing_Lab07_Report.docx
 ```
